@@ -12,8 +12,13 @@ const messages: Message[] = [];
 const getCurrentDate = () => new Date().toISOString();
 
 app.get('/messages', async (req, res) => {
-    const storedMessages = await fileDb.getItems();
+
+    const storedMessages = await fs.readdir('./messages');
     res.send(storedMessages);
+
+    storedMessages.forEach(file => {
+        console.log('./messages' + '/' + file);
+    });
 });
 
 app.post('/messages', async (req, res) => {
