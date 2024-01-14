@@ -12,11 +12,13 @@ const messages: Message[] = [];
 const getCurrentDate = () => new Date().toISOString();
 
 app.get('/messages', async (req, res) => {
-
     const storedMessages = await fs.readdir('./messages');
-    res.send(storedMessages);
 
-    storedMessages.forEach(file => {
+    const lastFiveMessages = storedMessages.slice(-5);
+
+    res.send(lastFiveMessages);
+
+    lastFiveMessages.forEach(file => {
         console.log('./messages' + '/' + file);
     });
 });
