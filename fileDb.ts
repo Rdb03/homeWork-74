@@ -13,18 +13,6 @@ const fileDb = {
           data = [];
       }
   },
-    async getItems() {
-      return data;
-    },
-    async addItem(item: Message) {
-      data.push(item);
-      await  this.save();
-
-      return item;
-    },
-    async save() {
-      return fs.writeFile(fileName, JSON.stringify(data));
-    }
 };
 
 export default fileDb;

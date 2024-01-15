@@ -1,7 +1,7 @@
 import express from "express";
-import { Message } from "./type";
+import {Message} from "./type";
 import fileDb from "./fileDb";
-import { promises as fs } from "fs";
+import {promises as fs} from "fs";
 
 const app = express();
 const port = 8000;
